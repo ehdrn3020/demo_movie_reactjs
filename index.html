@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,16 +20,25 @@
         const root = document.getElementById('root');
 
         function App() {
-            const [counter, setCounter] = React.useState(0);
-
-            function onClick() {
-                setCounter(counter + 1) ;   
-            }
+            const [minutes, setMinutes] = React.useState();
+            const onChange = (event) => {
+                setMinutes(event.target.value);
+            };
 
             return (
                 <div>
-                    <h3>Total clicks: {counter}</h3>
-                    <button onClick={onClick}>click me</button>
+                    <h3 className="hi">Super Converter</h3>
+                    <label htmlFor="minutes">Minutes</label>
+                    <input 
+                        value={minutes}
+                        onChange={onChange}
+                        id="minutes" 
+                        placeholder="Minutes" 
+                        type="number" 
+                    />
+                    <h4>You want to convert {minutes}</h4>
+                    <label htmlFor="hours">Hours</label>
+                    <input id="hours" placeholder="Hours" type="number" />
                 </div>
             );
         }
@@ -36,7 +46,9 @@
     </script>
 
 </head>
+
 <body>
-    
+
 </body>
+
 </html>
