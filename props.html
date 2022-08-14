@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+
+<body>    
+    <div id="root">
+        <!-- This div's content will be managed by React. -->
+    </div>
+
+    <!-- 만든 React 컴포넌트를 실행. -->
+    <script type="text/babel">
+
+        function Btn(props) {
+            return (
+                <button style={{
+                    backgroundColor:"tomato",
+                    color:"white",
+                    padding:"10px 20px",
+                    borderRadius:10,
+                    border:0
+                }}
+                >{props.txt}</button>
+            );
+        }
+
+        function App() {
+            const [index, setIndex] = React.useState("0");
+            const onSelect = (event) => {
+                setIndex(event.target.value);
+            };
+            return (
+                <div>
+                    <Btn txt="Save Changes" />
+                    <Btn txt="Confirmed" />
+                </div>
+            );
+        }
+        const root = document.getElementById('root');
+        ReactDOM.render(<App />, root);
+    </script>
+</body>
+
+</html>
