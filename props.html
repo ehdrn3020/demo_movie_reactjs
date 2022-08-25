@@ -21,27 +21,31 @@
     <script type="text/babel">
 
         function Btn(props) {
+            console.log(props.txt);
             return (
-                <button style={{
-                    backgroundColor:"tomato",
-                    color:"white",
-                    padding:"10px 20px",
-                    borderRadius:10,
-                    border:0
-                }}
+                <button 
+                    onClick={props.changeValue}
+                    style={{
+                        backgroundColor:"tomato",
+                        color:"white",
+                        padding:"10px 20px",
+                        borderRadius:10,
+                        border:0
+                    }}
                 >{props.txt}</button>
             );
         }
 
+        const MemorizedBtn = React.memo(Btn); 
         function App() {
-            const [index, setIndex] = React.useState("0");
-            const onSelect = (event) => {
-                setIndex(event.target.value);
+            const [value, setValue] = React.useState("Save Changes");
+            const changeValue = () => {
+                setValue("Revert Changes");
             };
             return (
                 <div>
-                    <Btn txt="Save Changes" />
-                    <Btn txt="Confirmed" />
+                    <MemorizedBtn txt={value} changeValue={changeValue} />
+                    <MemorizedBtn txt="Confirmed" />
                 </div>
             );
         }
