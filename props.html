@@ -9,6 +9,7 @@
 
     <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
     <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/prop-types@15.7.2/prop-types.js"></script>
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 </head>
 
@@ -20,20 +21,25 @@
     <!-- 만든 React 컴포넌트를 실행. -->
     <script type="text/babel">
 
-        function Btn(props) {
-            console.log(props.txt);
+        function Btn({ text, changeValue, fontSize = 12}) {
             return (
                 <button 
-                    onClick={props.changeValue}
+                    onClick={changeValue}
                     style={{
                         backgroundColor:"tomato",
                         color:"white",
                         padding:"10px 20px",
                         borderRadius:10,
-                        border:0
+                        border:0,
+                        fontSize
                     }}
-                >{props.txt}</button>
+                >{text}</button>
             );
+        }
+
+        Btn.propTypes = {
+            text: PropTypes.string,
+            fontSize: PropTypes.number
         }
 
         const MemorizedBtn = React.memo(Btn); 
@@ -44,8 +50,8 @@
             };
             return (
                 <div>
-                    <MemorizedBtn txt={value} changeValue={changeValue} />
-                    <MemorizedBtn txt="Confirmed" />
+                    <MemorizedBtn text={value} changeValue={changeValue} fontSize={18}/>
+                    <MemorizedBtn text="Confirmed" />
                 </div>
             );
         }
