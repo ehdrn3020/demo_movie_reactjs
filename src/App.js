@@ -12,6 +12,7 @@ function App() {
     <Routes>
       <Route path="/" element={ <Home/> } />
       <Route path="/movie" element={ <Detail/> } />
+      <Route path="/hello" element={ <h1>Hello!</h1> } />
     </Routes>
   </Router>
   );
