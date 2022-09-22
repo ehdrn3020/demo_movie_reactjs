@@ -1,3 +1,12 @@
+# DEMODE MOVIE LIST APP
+
+- Use movie data api from https://yts.mx/api
+<div>
+  <img src="https://user-images.githubusercontent.com/20849970/191870980-dd239f37-bc84-4ce5-92f8-82834186a238.png" width="400"/>
+</div>
+
+-
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
